@@ -14,7 +14,7 @@ services:
     image: postgres:13.1
     restart: always
     environment:
-      POSTGRES_PASSWORD: example
+      POSTGRES_PASSWORD:example
     ports:
       - 5433:5432
 
