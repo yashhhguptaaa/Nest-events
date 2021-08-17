@@ -65,7 +65,9 @@ export class EventsController {
     }
 
     @Patch(':id')
-    async update(@Param('id') id , @Body() input : UpdateEventDto) {
+    async update(
+        @Param('id') id ,
+        @Body() input : UpdateEventDto) {
         // const index = this.events.findIndex(
         //     event => event.id === parseInt(id)
         // );
