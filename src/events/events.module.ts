@@ -6,7 +6,7 @@ import { Attendee } from './attendee.entity';
 
 @Module({
     imports: [
-        TypeOrmModule.forFeature([Event]),
+        TypeOrmModule.forFeature([Event,Attendee]),
     ],
     controllers: [EventsController]
 })
