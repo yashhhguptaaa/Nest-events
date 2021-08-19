@@ -34,6 +34,26 @@ export class EventsService {
                             { answer : AttendeeAnswerEnum.Accepted}
                         )
             )
+            .loadRelationCountAndMap(
+                'e.attendeeMaybe',
+                'e.attendees',
+                'attendee',
+                (qb) => qb      //Inline Query Builder
+                        .where(
+                            'attendee.answer = :answer',
+                            { answer : AttendeeAnswerEnum.Maybe}
+                        )
+            )
+            .loadRelationCountAndMap(
+                'e.attendeeRejected',
+                'e.attendees',
+                'attendee',
+                (qb) => qb      //Inline Query Builder
+                        .where(
+                            'attendee.answer = :answer',
+                            { answer : AttendeeAnswerEnum.Rejected}
+                        )
+            )
     }
 
     public async getEvent(id: number): Promise<Event | undefined >{
