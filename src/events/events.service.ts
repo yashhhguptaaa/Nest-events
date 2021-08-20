@@ -70,6 +70,18 @@ export class EventsService {
                     `e.when >= CURDATE() AND e.when <= CURDATE() + INTERNAL 1 DAY`
                 );
             }
+
+            if(filter.when === WhenEventFilter.Tommorow){
+                query = query.andWhere(
+                    `e.when >= CURDATE() + INTERVAL 1 DAY AND e.when <= CURDATE() + INTERNAL 2 DAY`
+                );
+            }
+
+            if(filter.when === WhenEventFilter.Today){
+                query = query.andWhere(
+                    `e.when >= CURDATE() AND e.when <= CURDATE() + INTERNAL 1 DAY`
+                );
+            }
         }
 
     }
