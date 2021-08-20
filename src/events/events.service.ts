@@ -79,7 +79,13 @@ export class EventsService {
 
             if(filter.when === WhenEventFilter.ThisWeek){
                 query = query.andWhere(
-                    'YEARWEEK(e.when,1) = YEARWEEK(CURDATE(),1)'
+                    `YEARWEEK(e.when,1) = YEARWEEK(CURDATE(),1)`
+                );
+            }
+
+            if(filter.when === WhenEventFilter.NextWeek){
+                query = query.andWhere(
+                    `YEARWEEK(e.when,1) = YEARWEEK(CURDATE(),1)+1`
                 );
             }
         }
