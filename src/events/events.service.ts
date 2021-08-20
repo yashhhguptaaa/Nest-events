@@ -77,9 +77,9 @@ export class EventsService {
                 );
             }
 
-            if(filter.when === WhenEventFilter.Today){
+            if(filter.when === WhenEventFilter.ThisWeek){
                 query = query.andWhere(
-                    `e.when >= CURDATE() AND e.when <= CURDATE() + INTERNAL 1 DAY`
+                    'YEARWEEK(e.when,1) = YEARWEEK(CURDATE(),1)'
                 );
             }
         }
