@@ -90,6 +90,8 @@ export class EventsService {
             }
         }
 
+        return await query.getMany();
+
     }
 
     public async getEvent(id: number): Promise<Event | undefined >{
